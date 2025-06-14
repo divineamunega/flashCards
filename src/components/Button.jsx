@@ -1,9 +1,12 @@
 import { Link } from "react-router";
 
-const Button = function ({ type, children, to, className }) {
+const Button = function ({ type, children, to, className, handleClick }) {
     if (type === "button") {
         return (
-            <button className="cursor-pointer text bg-gradient-to-r from-[#52357B] to-[#5459AC] text-white px-12 py-2 rounded-3xl flex items-center gap-3 hover:opacity-80">
+            <button
+                onClick={handleClick}
+                className="cursor-pointer text bg-gradient-to-r from-[#52357B] to-[#5459AC] text-white px-12 py-2 rounded-3xl flex items-center gap-3 hover:opacity-80"
+            >
                 {children}
             </button>
         );

@@ -8,6 +8,7 @@ import Tasks from "./pages/Tasks";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 import { useEffect, useState } from "react";
+import StudySession from "./pages/StudySession";
 
 const App = function () {
     const [user, setUser] = useState({});
@@ -66,6 +67,7 @@ const App = function () {
 
                 <Route path="/generate" element={<GenerateFlashCards />} />
                 <Route path="/tasks" element={<Tasks />} />
+                <Route path="/study/:deckName" element={<StudySession />} />
             </Routes>
         </BrowserRouter>
     );

@@ -10,6 +10,7 @@ import { Upload } from "lucide-react";
 import { Target } from "lucide-react";
 import { Link } from "react-router";
 import { File } from "lucide-react";
+import Decks from "../components/dashboard/Decks";
 
 const Dashboard = ({ user, userIsLoading }) => {
     console.log(userIsLoading);
@@ -86,11 +87,19 @@ const Dashboard = ({ user, userIsLoading }) => {
                 </div>
 
                 <div className="flex w-full gap-5">
-                    <Button type="button" className="rounded-[5px]">
+                    <Button
+                        type="button"
+                        className="rounded-[5px]"
+                        handleClick={() => navigate("/generate")}
+                    >
                         <Plus className="text-white" />
                         Create New Deck
                     </Button>
-                    <Button type="link" className="rounded-[12px] px-2 py-2">
+                    <Button
+                        type="link"
+                        className="rounded-[12px] px-2 py-2"
+                        to="/generate"
+                    >
                         <Upload />
                         Upload PDF
                     </Button>
@@ -117,132 +126,9 @@ const Dashboard = ({ user, userIsLoading }) => {
                         All
                     </button>
                 </div>
-
-                <div className="w-[100%]">
-                    <div className="bg-white  w-[100%] py-20 rounded-[10px] flex justify-center">
-                        <div className="w-[20rem] align-middle text-center">
-                            <BookOpen
-                                size={65}
-                                className="text-gray-400 align-middle justify-center flex items-center m-auto mt-10"
-                            />
-                            <h2 className="font-medium text-[20px] mt-4">
-                                No decks yet
-                            </h2>
-                            <div className="whitespace-nowrap text-center mt-2 text-[18px] text-gray-500 m-auto flex justify-center items-center">
-                                Create your first deck by uploading a PDF or
-                                entering text
-                            </div>
-                            <Link className="cursor-pointer text bg-gradient-to-r from-[#52357B] to-[#5459AC] text-white px-12 py-2 rounded-xl flex items-center gap-3 hover:opacity-80 mt-5">
-                                <div>
-                                    <Plus />
-                                </div>
-
-                                <div>Create your First Deck</div>
-                            </Link>
-                        </div>
-                    </div>
-
-                    {false && (
-                        <div className="gap-10 grid grid-cols-3">
-                            <div className=" p-5 bg-white shadow-md flex flex-col gap-3">
-                                <div className="flex justify-between">
-                                    <span className="font-bold text-lg">{`{NAME}`}</span>
-                                    <button>
-                                        <Trash />
-                                    </button>
-                                </div>
-                                <div>{`{DESCRIPTION}`}</div>
-                                <div className="flex justify-between">
-                                    <span>Cards</span>
-                                    <span>{`{NUMBER}`}</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span>Last Studied</span>
-                                    <span>{`{DATE}`}</span>
-                                </div>
-                                <div>
-                                    <span className="p-2 bg-gray-300 rounded-2xl">{`{TAG}`}</span>
-                                </div>
-                                <div className="flex items-center justify-center">
-                                    {/* Edit button style */}
-                                    <Button type="button">Study Now</Button>
-                                </div>
-                            </div>
-                            <div className=" p-5 bg-white shadow-md flex flex-col gap-3">
-                                <div className="flex justify-between">
-                                    <span className="font-bold text-lg">{`{NAME}`}</span>
-                                    <button>
-                                        <Trash />
-                                    </button>
-                                </div>
-                                <div>{`{DESCRIPTION}`}</div>
-                                <div className="flex justify-between">
-                                    <span>Cards</span>
-                                    <span>{`{NUMBER}`}</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span>Last Studied</span>
-                                    <span>{`{DATE}`}</span>
-                                </div>
-                                <div>
-                                    <span className="p-2 bg-gray-300 rounded-2xl">{`{TAG}`}</span>
-                                </div>
-                                <div className="flex items-center justify-center">
-                                    <Button type="button">Study Now</Button>
-                                </div>
-                            </div>
-                            <div className=" p-5 bg-white shadow-md flex flex-col gap-3">
-                                <div className="flex justify-between">
-                                    <span className="font-bold text-lg">{`{NAME}`}</span>
-                                    <button>
-                                        <Trash />
-                                    </button>
-                                </div>
-                                <div>{`{DESCRIPTION}`}</div>
-                                <div className="flex justify-between">
-                                    <span>Cards</span>
-                                    <span>{`{NUMBER}`}</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span>Last Studied</span>
-                                    <span>{`{DATE}`}</span>
-                                </div>
-                                <div>
-                                    <span className="p-2 bg-gray-300 rounded-2xl">{`{TAG}`}</span>
-                                </div>
-                                <div className="flex items-center justify-center">
-                                    {/* Edit button style */}
-                                    <Button type="button">Study Now</Button>
-                                </div>
-                            </div>
-                            <div className=" p-5 bg-white shadow-md flex flex-col gap-3">
-                                <div className="flex justify-between">
-                                    <span className="font-bold text-lg">{`{NAME}`}</span>
-                                    <button>
-                                        <Trash />
-                                    </button>
-                                </div>
-                                <div>{`{DESCRIPTION}`}</div>
-                                <div className="flex justify-between">
-                                    <span>Cards</span>
-                                    <span>{`{NUMBER}`}</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span>Last Studied</span>
-                                    <span>{`{DATE}`}</span>
-                                </div>
-                                <div>
-                                    <span className="p-2 bg-gray-300 rounded-2xl">{`{TAG}`}</span>
-                                </div>
-                                <div className="flex items-center justify-center">
-                                    {/* Edit button style */}
-                                    <Button type="button">Study Now</Button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
             </div>
+
+            <Decks />
 
             <div className="fixed bottom-4 right-4 rounded-full w-13 h-13 bg-gradient-to-r from-[#52357B] to-[#5459AC] flex items-center justify-center">
                 <TimerIcon className="text-white w-6 h-6" />

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VLC Live Stream</title>
+    <style>
+        body { background-color: #333; color: white; font-family: Arial, sans-serif; text-align: center; }
+        video { width: 80%; max-width: 900px; border: 2px solid #00f; margin-top: 50px; }
+        h1 { color: #0f0; }
+    </style>
+</head>
+<body>
+    <h1>Live Stream from Linux VLC</h1>
+    <video id="liveStream" controls autoplay muted>
+        <source src="http://192.168.0.170:8080/stream" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <p>If the stream doesn't play, ensure:</p>
+    <ul>
+        <li>VLC is streaming on 192.168.0.170:8080/stream on Linux.</li>
+        <li>Linux firewall allows TCP port 8080.</li>
+        <li>The 'type' attribute in the source tag matches the actual stream container (e.g., video/mp4 or video/mp2t).</li>
+    </ul>
+
+    <script>
+        // Optional: Basic error handling for the video element
+        const video = document.getElementById('liveStream');
+        video.onerror = function() {
+            console.error("Error loading video stream. Check URL and server.");
+            // You could display a message to the user here.
+        };
+        // Optional: If you initially set muted, you might want to provide a button to unmute
+        // Or remove 'muted' from the video tag if you want sound from the start (with auto-play restrictions in browsers)
+    </script>
+</body>
+</html>
